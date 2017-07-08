@@ -31,6 +31,7 @@ main {
 	margin: 0 auto;
 	padding: 0 $gutter;
 	width: 1170px;
+	height: 100%;
 	@each $container, $width in $container-widths {
 		@include mq(#{$container}){
 			width: $width;
@@ -42,6 +43,7 @@ main {
 	display: flex;
 	margin: 0 -#{$gutter};
 	flex-wrap: wrap;
+	height: 100%;
 }
 .col {
 	padding: 0 $gutter;

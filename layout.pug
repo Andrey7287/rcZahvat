@@ -11,49 +11,108 @@ html
     link(rel="shortcut icon", href="./favicon.ico")
   body
     header.header
-      .site-nav-outer
-        .container
-          nav.site-nav-inner
-            button.c-hamburger.c-hamburger--htx
-              span toggle menu
-            +menu({
-              0: {
-                href: '/',
-                title: 'О Компании'
-              },
-              1: {
-                href: '/inner1.html',
-                title: 'Название'
-              },     
-              2: {
-                href: '/inner2.html',
-                title: 'Название2',
-                sub: {
-                  0: {
-                    href: '#',
-                    title: 'в подменю'
-                  },
-                  1: {
-                    href: '#',
-                    title: 'в подменю 2'
-                  },
-                  2: {
-                    href: '#',
-                    title: 'в подменю 3',
-                    sub: {
-                      0: {
-                        href: '#',
-                        title: '3 уровень'
-                      },
-                      1: {
-                        href: '#',
-                        title: '3 уровень'
+      .container
+        .row
+          .col
+            a(href="#", title="Захвати попутная доставка").site-slogan
+              .site-slogan__item Захвати
+              .site-slogan__item попутная доставка
+          .col
+            .site-nav-outer
+              .container
+                nav.site-nav-inner
+                  button.c-hamburger.c-hamburger--htx
+                    span toggle menu
+                  +menu({
+                    0: {
+                      href: '/',
+                      title: 'Отправителям',
+                      sub: {
+                        0: {
+                          href: '/',
+                          title: 'Регистрация отправителя'
+                        },
+                        1: {
+                          href: '/',
+                          title: 'Добавить Пакет'
+                        },
+                        2: {
+                          href: '/',
+                          title: 'Доступные маршруты'
+                        },
+                        3: {
+                          href: '/',
+                          title: 'Ваши гарантии'
+                        }
                       }
-                    }
-                  }
-                }
-              }     
-            }, 'site-nav')
+                    },
+                    1: {
+                      href: '/inner1.html',
+                      title: 'Перевозчикам',
+                      sub: {
+                        0: {
+                          href: '/',
+                          title: 'Регистрация перевозчика'
+                        },
+                        1: {
+                          href: '/',
+                          title: 'Добавить Поездку'
+                        },
+                        2: {
+                          href: '/',
+                          title: 'Ожидающие доставки'
+                        },
+                        3: {
+                          href: '/',
+                          title: 'Ваши выгоды'
+                        }
+                      }
+                    },     
+                    2: {
+                      href: '/inner2.html',
+                      title: 'О сервисе',
+                      sub: {
+                        0: {
+                          href: '/',
+                          title: 'Чем полезен сервис?'
+                        },
+                        1: {
+                          href: '/',
+                          title: 'География'
+                        },
+                        2: {
+                          href: '/',
+                          title: 'Контакты'
+                        },
+                        3: {
+                          href: '/',
+                          title: 'Карта сайта'
+                        }
+                      }
+                    },    
+                    3: {
+                      href: '/inner3.html',
+                      title: 'Правила',
+                      sub: {
+                        0: {
+                          href: '/',
+                          title: 'Правила пользования'
+                        },
+                        1: {
+                          href: '/',
+                          title: 'Гарантии безопасности'
+                        },
+                        2: {
+                          href: '/',
+                          title: 'Гарантии выплат'
+                        },
+                        3: {
+                          href: '/',
+                          title: 'Юридическая информация'
+                        }
+                      }
+                    }    
+                  }, 'site-nav')
     main
       block content
     footer

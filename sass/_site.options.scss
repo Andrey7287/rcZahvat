@@ -1,0 +1,47 @@
+.site-options {
+  position: relative;
+  height: 682px;
+  &__item {
+    z-index: 5;
+    height: 100%;
+  }
+  &__bkg {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: calc(50% + 50px);
+    overflow: hidden;
+    &_left {
+      z-index: 4;
+      left: 0;
+      svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+    &_right {
+      right: 0;
+      z-index: 3;
+      border-top: 1px solid #fff;
+      border-bottom: 2px solid #fff;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: none;
+      }
+    }
+  }
+  &__inner {
+    padding-top: 197px;
+  }
+  &__btn {
+    margin-bottom: 117px; //tmp
+  }
+  &__target {
+    color: #fff;
+    @include font(48,54);
+    background: rgba(234,76,27,.5);
+  }
+}

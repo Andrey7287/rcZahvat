@@ -1,7 +1,28 @@
 extends layout 
 
 block content
-  .slider-wrapp
+  .site-options
+    .site-options__bkg.site-options__bkg_left
+      svg(width="1010" height="682" xmlns="http://www.w3.org/2000/svg")
+        defs
+          pattern(patternUnits="userSpaceOnUse" width="1010" height="682")#bkgImgLeft
+            image(xlink:href="./images/bkg-left.jpg" width="1010" height="682")
+        polygon(points="0,0 911,0 1007,341 911,682 0,682" fill="url(#bkgImgLeft)" stroke="#fff" stroke-width="3")
+    .site-options__bkg.site-options__bkg_right
+      img(src="./images/bkg-right.jpg", alt="Захвати" width="1010" height="682")
+    .container
+      .row
+        .site-options__item.col
+          .site-options__inner.site-options__inner_left
+            button.site-options__btn.btn хочу отправить
+            .site-options__target Срочно передать документы<br /> в другой город!
+        .site-options__item.col
+          .site-options__inner.site-options__inner_right
+            button.site-options__btn.btn могу отвезти
+            .site-options__target отвезу по пути,<br /> помогу и<br /> заработаю!
+
+
+  //.slider-wrapp
     .slider.js-slider-1
       each val in [1,2]
         .slider__item
