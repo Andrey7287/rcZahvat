@@ -7,6 +7,7 @@ window.jQuery = $;
 
 /* Import project styles and components */
 require('script-loader!slick-carousel');
+import 'es6-promise/auto';
 import './modules/ymap';
 import '../sass/css.scss';
 import OnResize from './modules/resize';
@@ -34,8 +35,15 @@ $('.c-hamburger').on('click', function(){
 $('.js-slider-1').slick({
 	prevArrow: $('.js-slider-1-left'),
 	nextArrow: $('.js-slider-1-right'),
-	dots: true,
-	appendDots: $('.js-slider-1-dots')
+	slidesToShow: 5,
+	responsive: [
+    {
+      breakpoint: 1,
+      settings: {
+        slidesToShow: 1
+      }
+    }
+  ]
 });
 
 /************************
@@ -59,3 +67,17 @@ $(document).scroll(function(){
 });
 
 $('.scrollup').scrollUp();
+
+/******************************
+***** Toggle site options *****
+*******************************/
+
+var $options = $('.site-options');
+
+if( $options.length ){
+
+		$options.find('[data-options]').click(function(e){
+			$options.toggleClass($(this).attr('data-options'));
+		});
+
+}

@@ -1,6 +1,55 @@
 .footer {
-	padding: 25px 0;
-	.infodisign {
-		text-align: right;
+	&__top {
+		background: #d8d8d8;
+		padding: 37px 0 50px;
+	}
+	&__bottom {
+		text-align: center;
+		padding: 3px 0 15px;
+	}
+	.copyright {
+		color: #d8d8d8;
+		text-decoration: none;
+	}
+}
+.footer-nav {
+	&__title {
+		display: block;
+		position: relative;
+		@include font(24,28,400);
+		color: $default-color;
+		margin: 13px 0 30px;
+		text-decoration: none;
+		&::after {
+			content: " ";
+			display: block;
+			width: 100%;
+			height: 3px;
+			background: #fff;
+			position: absolute;
+			left: 0;
+			bottom: -17px;
+			transition: background .2s ease-in;
+		}
+		&:hover {
+			&::after {
+				background: lighten($orange, 25%);
+			}
+		}
+	}
+	&__nav {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		li {
+			margin-bottom: 6px;
+			a {
+				color: $default-color;
+				text-decoration: none;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
 	}
 }

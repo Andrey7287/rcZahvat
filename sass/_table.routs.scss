@@ -1,0 +1,103 @@
+.rout-table {
+  h3, .h3 {
+    color: $orange;
+  }
+  .left & {
+    padding-right: 95px;
+  }
+  .right & {
+    padding-left: 95px;
+    h3, .h3 {
+      color: $blue;
+    }
+  }
+}
+.rout {
+  display: flex;
+  padding: 10px 0;
+  border-top: 1px solid #d8d8d8;
+  &:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+  }
+  &__item {
+    flex: 1;
+    white-space: nowrap;
+    span {
+      position: relative;
+      background: #fff;
+      z-index: 2;
+      padding-right: 3px;
+    }
+    &:first-child{
+      position: relative;
+      overflow: hidden;
+      &::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        right: 3px;
+        z-index: 1;
+        top: calc(50% - 2px);
+        .pull & {
+          @include sprite($divider_orange);
+        }
+        .push & {
+          @include sprite($divider_blue);
+        }
+      }
+    }
+    &_btn {
+      flex-basis: 165px;
+      flex-grow: 0
+    }
+  }
+}
+
+
+.personal-routs {
+  th {
+    color: $grey;
+  }
+  .act {
+    color: $orange;
+  }
+  td {
+    border-top: 1px solid #d8d8d8;
+    font-size: 0.875em;
+    padding: 8px 0;
+    min-width: 130px;
+    &:nth-child(1) {
+      position: relative;
+      overflow: hidden;
+      span {
+        position: relative;
+        background: #fff;
+        z-index: 2;
+        padding-right: 3px;
+      }
+      &::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        right: 3px;
+        z-index: 1;
+        top: calc(50% - 2px);
+        @include sprite($divider_orange)
+      }
+    }
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      font-size: 1.125em
+    }
+    &.action {
+      font-size: 1em;
+      width: 165px;
+      padding-right: 35px
+    }
+  }
+  .unread span {
+    font-weight: 700;
+  }
+}

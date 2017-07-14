@@ -1,68 +1,68 @@
 // Headers
 
 h1, .h1 {
-	@include font(48,52,400,$serif);
+	@include font(36,42,300);
 	text-transform: uppercase;
 	text-align: center;
 	margin: 22px 0;
 	color: $header;
-	@include mq(lg){
-		@include font(46,50,400,$serif);
-		margin: 18px 0;
-	}
-	@include mq(md){
-		@include font(42,46,400,$serif);
-	}
-	@include mq(sm){
-		@include font(38,42,400,$serif);
-		margin: 10px 0;
-	}
-	@include mq(xs){
-		@include font(34,38,400,$serif);
-	}
+	// @include mq(lg){
+	// 	@include font(46,50,400);
+	// 	margin: 18px 0;
+	// }
+	// @include mq(md){
+	// 	@include font(42,46,400);
+	// }
+	// @include mq(sm){
+	// 	@include font(38,42,400);
+	// 	margin: 10px 0;
+	// }
+	// @include mq(xs){
+	// 	@include font(34,38,400);
+	// }
 }
 h2, .h2 {
-	@include font(36,38,400,$serif);
+	@include font(30,34,400);
 	text-transform: uppercase;
 	color: $header;
 	margin: 22px 0;
-	@include mq(md){
-		@include font(34,36,400,$serif);
-		margin: 18px 0;
-	}
-	@include mq(sm){
-		@include font(30,32,400,$serif);
-	}
-	@include mq(xs){
-		@include font(26,28,400,$serif);
-	}
+	// @include mq(md){
+	// 	@include font(34,36,400);
+	// 	margin: 18px 0;
+	// }
+	// @include mq(sm){
+	// 	@include font(30,32,400);
+	// }
+	// @include mq(xs){
+	// 	@include font(26,28,400);
+	// }
 }
 h3, .h3 {
-	@include font(30,32,400,$serif);
+	@include font(24,28,400);
 	text-transform: uppercase;
 	color: $header;
 	margin: 13px 0;
-	@include mq(md){
-		@include font(28,30,400,$serif);
-		margin: 8px 0;
-	}
-	@include mq(sm){
-		@include font(26,28,400,$serif);
-		margin: 6px 0;
-	}
+	// @include mq(md){
+	// 	@include font(28,30,400);
+	// 	margin: 8px 0;
+	// }
+	// @include mq(sm){
+	// 	@include font(26,28,400);
+	// 	margin: 6px 0;
+	// }
 }
 h4, .h4 {
-	@include font(20,24,700,$serif);
+	@include font(20,24,700);
 	text-transform: uppercase;
 	color: $header;
 	margin: 13px 0;
-	@include mq(lg){
-		br {display: none}
-	}
-	@include mq(sm){
-		@include font(18,22,400,$serif);
-		margin: 6px 0;
-	}
+	// @include mq(lg){
+	// 	br {display: none}
+	// }
+	// @include mq(sm){
+	// 	@include font(18,22,400);
+	// 	margin: 6px 0;
+	// }
 }
 
 .content {
@@ -113,5 +113,10 @@ h4, .h4 {
 }
 
 .btn {
-  text-decoration: none;
+	&_blue {
+		@include gbBtn(bottom, #00c1d8, #00789a);
+	}
+	&_orange {
+		@include gbBtn(bottom, #f78600, #db4516);
+	}
 }

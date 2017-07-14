@@ -14,9 +14,13 @@ input,
 select,
 textarea {
 	margin: 0;
-	font: inherit;
-	padding: 0 10px;
+	@include font(14,16);
+	padding: 12px 10px;
 	border: 1px solid #d1d2d4;
+	border: 0;
+}
+input {
+	width: 100%;
 }
 textarea {
 	overflow: auto;
@@ -39,58 +43,80 @@ fieldset {
 
 
 ::placeholder {
-	color: $default-color;
+	color: #555;
 }
 
-
-.input {
-	&[type=checkbox] {
-		display: none;
-		& + label {
-			display: block;
-			padding-left: 30px;
+.reg-form {
+	margin: 0 -12px;
+	display: flex;
+	flex-wrap: wrap;
+	&__item {
+		padding: 17px 12px;
+		flex: 1;
+		@include basis(50%);
+		&_full {
+			@include basis(100%);
+		}
+		label {
+			@include font(18,24);
+			color: #fff;
+		}
+		.icon {
 			position: relative;
-			margin-bottom: 10px;
+			input {
+				padding-left: 42px;
+			}
 			&::before {
+				position: absolute;
 				content: " ";
 				display: block;
-				position: absolute;
-				top: 0;
-				left: 0;
-				@include sprite($ico-checkbox-off)
+				top: 50%;
+				left: 10px;
+				transform: translateY(-50%);	
+			}
+			&_name::before {
+				@include sprite($ico-form_name);
+			}
+			&_tel::before {
+				@include sprite($ico-form_tel);
+			}
+			&_email::before {
+				@include sprite($ico-form_mail);
 			}
 		}
-		&:checked {
+	}
+	input {
+		&[type=checkbox] {
+			position: absolute;
+			left: -9999px;
 			& + label {
+				display: inline-block;
+				padding-left: 24px;
+				position: relative;
+				margin-bottom: 10px;
+				cursor: pointer;
 				&::before {
-					@include sprite($ico-checkbox-on)
+					content: " ";
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 0;
+					transform: translateY(-50%);
+					@include sprite($ico-checkbox-off)
+				}
+			}
+			&:checked {
+				& + label {
+					&::before {
+						@include sprite($ico-checkbox-on)
+					}
+				}
+			}
+			&:focus {
+				& + label {
+					outline: 2px solid $blue;
 				}
 			}
 		}
 	}
-/*	&[type=radio] {
-		display: none;
-		& + label {
-			display: inline-block;
-			margin-left: 0;
-			margin-bottom: 5px;
-			&::before {
-				content: "";
-				display: inline-block;
-				width: 20px;
-				height: 20px;
-				line-height: 20px;
-				background: url(img/radio.png);
-				vertical-align: bottom;
-				margin-right: 10px;
-			}
-		}
-		&:checked {
-			& + label {
-				&::before {
-					background: url(img/radio-on.png);
-				}
-			}
-		}
-	}*/
 }

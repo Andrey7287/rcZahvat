@@ -1,18 +1,18 @@
 .site-options {
   position: relative;
   height: 682px;
+  margin-bottom: 35px;
   &__item {
-    z-index: 5;
     height: 100%;
   }
   &__bkg {
     position: absolute;
     top: 0;
     height: 100%;
-    width: calc(50% + 50px);
+    width: calc(50% + 52px);
     overflow: hidden;
     &_left {
-      z-index: 4;
+      z-index: 5;
       left: 0;
       svg {
         position: absolute;
@@ -22,26 +22,114 @@
     }
     &_right {
       right: 0;
-      z-index: 3;
+      z-index: 1; 
       border-top: 1px solid #fff;
       border-bottom: 2px solid #fff;
-      img {
+      .img {
         position: absolute;
         top: 0;
         left: 0;
         max-width: none;
+        z-index: 1;
+        .open-reg & {
+          z-index: 0
+        }
+        &_reg {
+          z-index: 0;
+          opacity: .85;
+          .open-reg  & {
+            z-index: 1;
+          }
+        }
       }
     }
   }
   &__inner {
     padding-top: 197px;
+    position: relative;
+    height: 100%;
+    .open-reg &_right {
+       display: none;
+    }
   }
   &__btn {
-    margin-bottom: 117px; //tmp
+    width: 280px;
+    border: 10px solid rgba(255,255,255,.5);
+    border-radius: 10px;
+    position: relative;
+    @include font(24,24);
+    z-index: 6;
+    .col:first-child & {margin-left: 193px;} // left btn
+    .col:last-child & {margin-left: 78px;}   // right btn
+    &_form {margin-left: 0!important} // reset for regform 
+    button,
+    [type="submit"] {
+      width: 100%;
+      padding: 0.75em 0;
+      border: 0;
+      border-radius: 3px;
+      .col:first-child & {@include gBtn(bottom, #f3501e, #da4416);}
+      .col:last-child & {@include gBtn(bottom, #00bed5, #007c9e);}
+    }
   }
   &__target {
     color: #fff;
     @include font(48,54);
-    background: rgba(234,76,27,.5);
+    text-transform: uppercase;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: absolute;
+    top: 50%;
+    height: 220px;
+    .col:first-child &  {
+      background: rgba(234,76,27,.5);
+      padding-right: 84px;
+      text-align: right;
+      z-index: 6;
+      right: 4px;
+      &::before{
+        position: absolute;
+        content: " ";
+        display: block;
+        right: -67px;
+        top: 0;
+        bottom: 0;
+        border-left: 67px solid rgba(234, 76, 27, 0.5);
+        border-bottom: 220px solid transparent;
+      }
+    }
+    .col:last-child &  {
+      background: rgba(16,182,200,.5);
+      padding-left: 42px;
+      padding-right: 42px;
+      z-index: 4;
+      left: 38px;
+      &::before{
+        position: absolute;
+        content: " ";
+        display: block;
+        left: -67px;
+        top: 0;
+        bottom: 0;
+        border-right: 67px solid rgba(16,182,200,.5);
+        border-top: 220px solid transparent;
+      }
+    }
+  }
+  /////////////////////////
+  &__title {
+    @include font(36,40);
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 11px;
+  }
+  &__registration {
+    position: relative;
+    z-index: 4;
+    padding: 50px 0 0 98px;
+    display: none;
+    .open-reg & {
+      display: block;
+    }
   }
 }

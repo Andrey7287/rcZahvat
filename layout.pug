@@ -7,19 +7,17 @@ html
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="cmsmagazine" content="849adf88a19b6cd917ad2f593e243b3a")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700")
-    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=PT+Serif:400,700")
     link(rel="shortcut icon", href="./favicon.ico")
   body
     header.header
       .container
         .row
           .col
-            a(href="#", title="Захвати попутная доставка").site-slogan
+            a(href="/", title="Захвати попутная доставка").site-slogan
               .site-slogan__item Захвати
               .site-slogan__item попутная доставка
           .col
             .site-nav-outer
-              .container
                 nav.site-nav-inner
                   button.c-hamburger.c-hamburger--htx
                     span toggle menu
@@ -115,6 +113,23 @@ html
                   }, 'site-nav')
     main
       block content
-    footer
-      div.footer
-        div.copyright= 'all right resived'
+    footer.footer
+      .footer__top
+        .container
+          .row
+            each col in [{title: 'Отправителям',a: 'Регистрация отправителя',b:'Добавить Пакет',c:'Доступные маршруты',d:'Ваши гарантии'},{title: 'Перевозчикам',a: 'Регистрация перевозчика',b:'Добавить Поездку',c:'Ожидающие доставки',d:'Ваши выгоды'},{title: 'О сервисе',a: 'Чем полезен сервис?',b:'География',c:'Контакты',d:'Карта сайта'},{title: 'Правила',a: 'Правила пользования',b:'Гарантии безопасности',c:'Гарантии выплат',d:'Юридическая информация'}]
+              .col.footer-nav
+                a(href="/s").footer-nav__title= col.title
+                ul.footer-nav__nav
+                  li
+                    a(href="/")= col.a
+                  li
+                    a(href="/")= col.b
+                  li
+                    a(href="/")= col.c
+                  li
+                    a(href="/")= col.d
+      .footer__bottom
+        .container
+          .copyright © Захвати.ру Сервис попутной передачи документов. 2017
+          a(href="http://infodesign.ru/", title="Создание сайта и дизайн «Инфодизайн» 2017").copyright © Создание сайта и дизайн «Инфодизайн» 2017 

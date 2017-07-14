@@ -1,4 +1,105 @@
 extends layout 
 
 block content
-  h1= 'inner1'
+  .inner
+    .inner__top
+      .container
+        h1 Личный кабинет отправителя
+    .container
+      .profile.row
+        .profile__item.col
+          .profile__photo
+            img(src="./images/profile-img.jpg", alt="фото профиля")
+            a(href="#", title="Изменить").edit Изменить фото 
+        .profile__item.col
+          .profile__header
+            .profile__name Александр Калесандров
+            .profile__edit
+              a(href="#", title="Редактировать профиль") Редактировать профиль
+          .profile__inner.row
+            .profile__inner-item.col
+              .data
+                .data__title Телефон
+                .data__phone +7 (900) 000-00-00
+            .profile__inner-item.col
+              .data
+                .data__title Возраст
+                .data__txt 35 лет (02.06.1982)
+            .profile__inner-item.col
+              .data
+                .data__title E-mail
+                .data__txt 
+                  a(href="mailto:kalesanfralexan@mail.com", title="kalesanfralexan@mail.com") kalesanfralexan@mail.com
+            .profile__inner-item.col
+              .data
+                .data__title Пол
+                .data__txt мужской
+            .profile__inner-item.col
+              .data.data_soc-wrap
+                .data__title Соцсети
+                ul.soc
+                  li
+                    a(href="/" title="Вконтакте").soc__item.soc__item_vk Вконтакте 
+                  li
+                    a(href="" title="Facebook ").soc__item.soc__item_fb Facebook 
+                  li
+                    span(title="Одноклассники ").soc__item.soc__item_ok.soc__item_inact Одноклассники 
+                  li
+                    span(title="Google+").soc__item.soc__item_gp.soc__item_inact Google+
+            .profile__inner-item.col
+              .data
+                .data__title О себе
+                .data__txt Шикарный мужчина в полном расцвете сил. И может быть еще несколько предложений о себе.
+      .rout-table
+        h3 мои отправления
+        table.personal-routs.push
+          thead
+            tr
+              th #[span Маршрут]
+              th
+              th #[span № заявки]
+              th #[span Принята]
+              th #[span Статус]
+              th #[span Действие]
+              th #[span Уведомления]
+          tbody 
+            tr
+              td #[span.act Москва]
+              td #[span.act Нарьян-Мар]
+              td #[span.act 215463]	
+              td #[span 30.05.2017 15:32]
+              td #[span Ожидает исполнителя] 
+              td.action #[a(href="").btn.btn_orange отменить]
+              td #[a(href="").unread #[span 2] непрочитаных из 12]
+            tr
+              td #[span.act С.-Петербург]
+              td #[span.act Владивосток]
+              td #[span.act 654987]	
+              td #[span 14.05.2017 12:51]
+              td #[span Принята исполнителем]
+              td.action #[a(href="").btn.btn_orange связаться]				
+              td #[a(href="").unread #[span 1] непрочитаных из 3]
+            tr
+              td #[span Москва]
+              td #[span Железногорск]
+              td #[span 354488]	
+              td #[span 22.02.2017 09:15]
+              td #[span Есть исполнители]
+              td.action #[a(href="").btn.btn_orange исполнители]
+              td #[a(href="").unread #[span 3] непрочитаных из 5]
+            tr
+              td #[span Воронеж]
+              td #[span Москва]
+              td #[span 637525]	
+              td #[span 30.12.2016 16:48]
+              td #[span Отменена]
+              td.action
+              td #[a(href="") 0 непрочитаных из 6]
+            tr
+              td #[span Железногорск]
+              td #[span С.-Петербург]
+              td #[span 654987]
+              td #[span 30.12.2016 16:48]
+              td #[span Доставлена]
+              td.action #[.raiting.raiting_orange(data-raiting="3")]
+              td #[a(href="") 0 непрочитаных из 25]

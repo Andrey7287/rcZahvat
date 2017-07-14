@@ -7,27 +7,90 @@ block content
         defs
           pattern(patternUnits="userSpaceOnUse" width="1010" height="682")#bkgImgLeft
             image(xlink:href="./images/bkg-left.jpg" width="1010" height="682")
-        polygon(points="0,0 911,0 1007,341 911,682 0,682" fill="url(#bkgImgLeft)" stroke="#fff" stroke-width="3")
+        polygon(points="0,0 905,0 1007,341 905,682 0,682" fill="url(#bkgImgLeft)" stroke="#fff" stroke-width="3")
     .site-options__bkg.site-options__bkg_right
-      img(src="./images/bkg-right.jpg", alt="Захвати" width="1010" height="682")
+      img(src="./images/bkg-right.jpg", alt="Захвати" width="1010" height="682").img
+      img(src="./images/bkg-right_reg.png", alt="Захвати" width="1010" height="682").img.img_reg
     .container
       .row
         .site-options__item.col
           .site-options__inner.site-options__inner_left
-            button.site-options__btn.btn хочу отправить
+            .site-options__btn
+              button(data-options="open-reg") хочу отправить
             .site-options__target Срочно передать документы<br /> в другой город!
         .site-options__item.col
           .site-options__inner.site-options__inner_right
-            button.site-options__btn.btn могу отвезти
+            .site-options__btn
+              button могу отвезти
             .site-options__target отвезу по пути,<br /> помогу и<br /> заработаю!
+          .site-options__registration#registration
+            .site-options__title регистрируем <br />вас в системе
+            form(action="")
+              .reg-form
+                .reg-form__item
+                  label(for="fieldRegName") Ваше имя
+                  .icon.icon_name
+                    input(type="text" name="name" id="fieldRegName" placeholder="Мария")
+                .reg-form__item
+                  label(for="fieldRegPhone") Контактный телефон
+                  .icon.icon_tel
+                    input(type="tel" name="tel" id="fieldRegPhone" placeholder="+7(926)123-12-12")
+                .reg-form__item.reg-form__item_full
+                  label(for="fieldEmail") Электронная почта
+                  .icon.icon_email
+                    input(type="email" name="email" id="fieldEmail")
+                .reg-form__item
+                  label(for="fieldPass") Пароль
+                  input(type="password" name="passworld" id="fieldPass")
+                .reg-form__item
+                  label(for="fieldPass2") Повторите пароль
+                  input(type="password" name="passworld2" id="fieldPass2")
+                .reg-form__item.reg-form__item_full
+                  input(type="checkbox" name="" id="fieldCheckbox")
+                  label(for="fieldCheckbox") Я согласен (-а) с условиями и правилами сервиса
+                .site-options__btn.site-options__btn_form
+                    input(type="submit" value="регистрация") 
+  .main-wrapp
+    .container
+      .table-routs.row
+        .col.table-routs__item.left
+          .rout-table
+            h3 Срочно ждет отправки
+            each to, from in {'Москва':'Нарьян-Мар','С.-Петербург':'Владивосток','Москва':'Железногорск','Воронеж':'Москва','Йошкар-Ола':'С.-Петербург'}
+              .rout.pull
+                .rout__item
+                  span= from
+                .rout__item
+                  span= to
+                .rout__item.rout__item_btn
+                  a.btn.btn_blue могу отвезти
+        .col.table-routs__item.right
+          .rout-table 
+            h3 Ближайшие маршруты
+            each to, from in {'Москва':'Нарьян-Мар','С.-Петербург':'Владивосток','Москва':'Железногорск','Воронеж':'Москва','Йошкар-Ола':'С.-Петербург'}
+              .rout.push
+                .rout__item
+                  span= from
+                .rout__item
+                  span= to
+                .rout__item.rout__item_btn
+                  a.btn.btn_orange хочу отправить
+      .about
+        h1 о сервисе
+        p Лена перевозит шведский храмовый комплекс, посвященный дилмунскому богу Енки. Горная река, при том, что королевские полномочия находятся в руках исполнительной власти - кабинета министров, отражает живописный небольшой парк с дикими животными к юго-западу от Манамы. Лена перевозит шведский храмовый комплекс, посвященный дилмунскому богу Енки. Горная река, при том, что королевские полномочия находятся в руках исполнительной власти - кабинета министров, отражает живописный небольшой парк с дикими животными к юго-западу от Манамы.
+        p Лена перевозит шведский храмовый комплекс, посвященный дилмунскому богу Енки. Горная река, при том, что королевские полномочия находятся в руках исполнительной власти - кабинета министров, отражает живописный небольшой парк с дикими животными к юго-западу от Манамы. 
+      .top-raits
+        .h1 Наши герои
+        .slider-wrapp
+          .slider.js-slider-1
+            each val in [1,2,3,4,5,2,5,4]
+              .slider__item
+                .slider__inner
+                  .slider__img
+                    img(src="./images/slider"+val+".jpg", alt="")
+                  .slider__bottom
+                    .raiting(data-raiting=""+val) 
+                    .slider__name Имя Фамилия
 
-
-  //.slider-wrapp
-    .slider.js-slider-1
-      each val in [1,2]
-        .slider__item
-          .slider__inner
-          img(src="./images/slider"+val+".jpg", alt="")
-    button.slider-arrow.js-slider-1-left previos
-    button.slider-arrow.js-slider-1-right next
-    .slider-dots.js-slider-1-dots
+          button.slider-arrow.js-slider-1-left previos
+          button.slider-arrow.js-slider-1-right next

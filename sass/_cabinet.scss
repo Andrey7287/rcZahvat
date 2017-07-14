@@ -1,0 +1,112 @@
+.profile {
+  margin-bottom: 35px;
+  &__item{
+    flex-grow: 0;
+    &:first-child {
+      flex-basis: 33.3333%;
+      -ms-flex-preferred-size: calc(33.3333% - #{2*$gutter});
+    }
+    &:last-child {
+      display: inline-flex;
+      flex-direction: column;
+      flex-basis: 50%;
+      -ms-flex-preferred-size: calc(50% - #{2*$gutter});
+    }
+  }
+  &__photo {
+    position: relative;
+    height: 0;
+    padding-bottom: 100%;
+    overflow: hidden;
+    img {
+      position: absolute;
+      top:50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: inherit;
+
+    }
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  &__name {
+    @include font(32,34);
+  }
+  &__edit {
+    @include font(14,22);
+    a {
+      color: #999;
+    }
+  }
+  &__inner {
+    height: auto;
+    margin-top: auto;
+  }
+  &__inner-item {
+    flex-grow: 0;
+    flex-basis: 50%;
+    -ms-flex-preferred-size: calc(50% - #{2*$gutter});
+    position: relative;
+    padding-top: 15px;
+  }
+}
+
+.data {
+  &_soc-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  &__title,
+  &__phone {
+    @include font(20);
+  }
+  &__title {
+    color: $grey;
+  }
+  &__txt {
+    position: relative;
+  }
+  .soc {
+    line-height: 21px;
+    list-style: none;
+    margin: 0;
+    margin-top: auto;
+    padding: 0;
+    li {
+      padding-top: 8px;
+    }
+    &__item {
+      position: relative;
+      padding-left: 22px;
+      &::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: -2px;
+        left: 0;
+      }
+      &_vk::before {
+        @include sprite($ico-soc_vk);
+      } 
+      &_fb::before {
+        @include sprite($ico-soc_fb);
+      } 
+      &_ok::before {
+        @include sprite($ico-soc_ok);
+      } 
+      &_gp::before {
+        @include sprite($ico-soc_gp);
+      }
+      &_inact {
+        color: #555;
+        &::before {
+          filter: grayscale(100%); 
+        }
+      }
+    }
+  }
+}

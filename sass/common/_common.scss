@@ -49,6 +49,7 @@ main {
 	padding: 0 $gutter;
 	flex: 1;
 }
+//-ms-flex-preferred-size
 
 // Normalize
 
@@ -136,4 +137,13 @@ abbr[title] {
 	border-bottom: none; /* 1 */
 	text-decoration: underline; /* 2 */
 	text-decoration: underline dotted; /* 2 */
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	th {
+		text-align: left;
+		font-weight: 400;
+	}
 }

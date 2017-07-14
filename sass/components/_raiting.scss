@@ -1,0 +1,21 @@
+.raiting {
+  
+  $star-width: 30px;
+
+  width: 147px;
+  height: 26px;
+  margin: auto;
+  background-image: url(../images/stars.png);
+  background-position-y: 0;
+  background-position-x: 100%;
+  background-repeat: no-repeat;	
+  @for $i from 1 through 5 {
+    &[data-raiting^='#{$i}'] {
+      background-position-x: calc(100% + #{$star-width*$i});
+    }
+  }
+
+  &_orange {
+    background-image: url(../images/stars_orange.png);
+  }
+}
