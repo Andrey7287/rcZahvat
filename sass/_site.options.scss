@@ -2,8 +2,16 @@
   position: relative;
   height: 682px;
   margin-bottom: 35px;
+  @include mq(lg){
+    height: auto;
+    background: linear-gradient(to bottom, #f4b7a4 0%, #fae1d9 100%);
+    padding-bottom: 20px;
+  }
   &__item {
     height: 100%;
+    @include mq(lg) {
+      @include basis(100%);
+    }
   }
   &__bkg {
     position: absolute;
@@ -11,6 +19,9 @@
     height: 100%;
     width: calc(50% + 52px);
     overflow: hidden;
+    @include mq(lg) {
+      display: none;
+    }
     &_left {
       z-index: 5;
       left: 0;
@@ -29,16 +40,28 @@
         position: absolute;
         top: 0;
         left: 0;
-        max-width: none;
         z-index: 1;
-        .open-reg & {
-          z-index: 0
+        img {
+          max-width: none;
         }
-        &_reg {
+        .open &:first-child {
           z-index: 0;
-          opacity: .85;
-          .open-reg  & {
-            z-index: 1;
+          &::after {
+            content: " ";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(241,80,29,.85);
+            z-index: 0;
+          }
+        }
+        &_form {
+          display: none;
+          .open-reg &,
+          .open-sending & {
+            display: block;
           }
         }
       }
@@ -48,7 +71,13 @@
     padding-top: 197px;
     position: relative;
     height: 100%;
-    .open-reg &_right {
+    @include mq(lg) {
+      padding-top: 0;
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 0.9em;
+    }
+    .open &_right {
        display: none;
     }
   }
@@ -59,9 +88,16 @@
     position: relative;
     @include font(24,24);
     z-index: 6;
-    .col:first-child & {margin-left: 193px;} // left btn
-    .col:last-child & {margin-left: 78px;}   // right btn
+    @include mq(lg){
+      order: 2;
+      margin-left:0!important;
+      margin-right:0!important;
+    }
+    //////////////////////////////////////////////////////
+    .col:first-child & {margin-left: 193px;}   // left btn
+    .col:last-child & {margin-left: 78px;}    // right btn
     &_form {margin-left: 0!important} // reset for regform 
+    //////////////////////////////////////////////////////
     button,
     [type="submit"] {
       width: 100%;
@@ -81,6 +117,30 @@
     position: absolute;
     top: 50%;
     height: 220px;
+    &::before {
+      position: absolute;
+      content: " ";
+      display: block;
+      top: 0;
+      bottom: 0;
+    }
+    @include mq(lg){
+      position: static;
+      order: 1;
+      @include h1style;
+      height: auto;
+      width: 100%;
+      text-align: left!important;
+      padding: 0!important;
+      padding-right: 0!important;
+      background: none!important;
+      br {
+        display: none;
+      }
+      &::before {
+        display: none;
+      }
+    }
     .col:first-child &  {
       background: rgba(234,76,27,.5);
       padding-right: 84px;
@@ -88,12 +148,7 @@
       z-index: 6;
       right: 4px;
       &::before{
-        position: absolute;
-        content: " ";
-        display: block;
         right: -67px;
-        top: 0;
-        bottom: 0;
         border-left: 67px solid rgba(234, 76, 27, 0.5);
         border-bottom: 220px solid transparent;
       }
@@ -105,12 +160,7 @@
       z-index: 4;
       left: 38px;
       &::before{
-        position: absolute;
-        content: " ";
-        display: block;
         left: -67px;
-        top: 0;
-        bottom: 0;
         border-right: 67px solid rgba(16,182,200,.5);
         border-top: 220px solid transparent;
       }
@@ -123,13 +173,25 @@
     text-transform: uppercase;
     margin-bottom: 11px;
   }
-  &__registration {
+  &__form {
     position: relative;
     z-index: 4;
     padding: 50px 0 0 98px;
     display: none;
-    .open-reg & {
-      display: block;
+    @each $form in reg, sending, result {
+      .open-#{$form} &_#{$form} {
+        display: block;
+      }
     }
+
+    // .open-reg &_reg {
+    //   display: block;
+    // }
+    // .open-sending &_sending {
+    //   display: block;
+    // }
+    // .open-result &_result {
+    //   display: block;
+    // }
   }
 }

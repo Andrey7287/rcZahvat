@@ -4,7 +4,7 @@
 	text-decoration: none;
 	text-transform: uppercase;
 	background-image: linear-gradient(to $direction, $color1 0%, $color2 51%, $color1 100%);
-	background-size: 200%;
+	background-size: 100% 200%;
 	transition: background-position .2s ease-in-out;
 
 	text-align: center;
@@ -36,6 +36,9 @@
 	text-align: center;
 	cursor: pointer;
 	transition: none;
+	@include mq(lg){
+		width: 150px;
+	}
 	&::before,
 	&::after {
 		content: " ";
@@ -53,12 +56,14 @@
 	&::after {
 		left: 0;
 	}
-	&:hover {
+	&:hover,
+	&:focus {
 		border-bottom: 3px solid $color1;
 		border-top: 3px solid $color2;
 		-webkit-background-clip: padding-box;
 		background-clip: padding-box;
 		-webkit-text-fill-color: #fff;
+		outline: 0;
 		&::before,
 		&::after {
 			background-position: $direction center;

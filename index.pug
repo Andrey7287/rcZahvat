@@ -9,21 +9,24 @@ block content
             image(xlink:href="./images/bkg-left.jpg" width="1010" height="682")
         polygon(points="0,0 905,0 1007,341 905,682 0,682" fill="url(#bkgImgLeft)" stroke="#fff" stroke-width="3")
     .site-options__bkg.site-options__bkg_right
-      img(src="./images/bkg-right.jpg", alt="Захвати" width="1010" height="682").img
-      img(src="./images/bkg-right_reg.png", alt="Захвати" width="1010" height="682").img.img_reg
+      .img
+        img(src="./images/bkg-right.jpg", alt="Захвати" width="1010" height="682")
+      .img.img_form
+        img(src="./images/bkg-right_reg.png", alt="Захвати" width="1010" height="682")
     .container
       .row
         .site-options__item.col
           .site-options__inner.site-options__inner_left
             .site-options__btn
-              button(data-options="open-reg") хочу отправить
+              //button(data-options="open-reg") хочу отправить
+              button(data-options="open-sending") хочу отправить
             .site-options__target Срочно передать документы<br /> в другой город!
         .site-options__item.col
           .site-options__inner.site-options__inner_right
             .site-options__btn
               button могу отвезти
             .site-options__target отвезу по пути,<br /> помогу и<br /> заработаю!
-          .site-options__registration#registration
+          .site-options__form.site-options__form_reg#reg
             .site-options__title регистрируем <br />вас в системе
             form(action="")
               .reg-form
@@ -36,20 +39,64 @@ block content
                   .icon.icon_tel
                     input(type="tel" name="tel" id="fieldRegPhone" placeholder="+7(926)123-12-12")
                 .reg-form__item.reg-form__item_full
-                  label(for="fieldEmail") Электронная почта
+                  label(for="fieldRegEmail") Электронная почта
                   .icon.icon_email
-                    input(type="email" name="email" id="fieldEmail")
+                    input(type="email" name="email" id="fieldRegEmail")
                 .reg-form__item
-                  label(for="fieldPass") Пароль
-                  input(type="password" name="passworld" id="fieldPass")
+                  label(for="fieldRegPass") Пароль
+                  input(type="password" name="passworld" id="fieldRegPass")
                 .reg-form__item
-                  label(for="fieldPass2") Повторите пароль
-                  input(type="password" name="passworld2" id="fieldPass2")
+                  label(for="fieldRegPass2") Повторите пароль
+                  input(type="password" name="passworld2" id="fieldRegPass2")
                 .reg-form__item.reg-form__item_full
-                  input(type="checkbox" name="" id="fieldCheckbox")
-                  label(for="fieldCheckbox") Я согласен (-а) с условиями и правилами сервиса
+                  input(type="checkbox" name="rules" id="fieldRegCheckbox")
+                  label(for="fieldRegCheckbox") Я согласен (-а) с #[a(href="#", title="условиями и правилами") условиями и правилами] сервиса
                 .site-options__btn.site-options__btn_form
                     input(type="submit" value="регистрация") 
+          .site-options__form.site-options__form_sending#sending
+            .site-options__title отправить <br />пакет документов
+            form(action="")
+              .reg-form
+                .reg-form__item
+                  label(for="fieldSendingName") Ваше имя
+                  .icon.icon_name
+                    input(type="text" name="name" id="fieldSendingName")
+                .reg-form__item
+                  label(for="fieldSendingPhone") Контактный телефон
+                  .icon.icon_tel
+                    input(type="tel" name="tel" id="fieldSendingPhone")
+                .reg-form__item.reg-form__item_short
+                  label(for="fieldSendingWhen") Когда
+                  .icon.icon_date
+                    input(type="text" name="when" id="fieldSendingWhen")
+                .reg-form__item
+                  label(for="fieldSendingFrom") Откуда
+                  .icon.icon_home
+                    input(type="text" name="from" id="fieldSendingFrom")
+                .reg-form__item
+                  label(for="fieldSendingWhere") Куда
+                  .icon.icon_location
+                    input(type="text" name="where" id="fieldSendingWhere")
+                .reg-form__item.reg-form__item_short
+                  label(for="fieldSendingDeadline") Дедлайн
+                  .icon.icon_date
+                    input(type="text" name="deadline" id="fieldSendingDeadline")
+                .reg-form__item.reg-form__item_full
+                    input(type="checkbox" name="rules" id="fieldSendingCheckbox")
+                    label(for="fieldSendingCheckbox") Я согласен (-а) с #[a(href="#", title="условиями и правилами") условиями и правилами] сервиса
+                .site-options__btn.site-options__btn_form
+                    input(type="submit" value="отправить")
+          .site-options__form.site-options__form_result#result
+            .site-options__title подтвердите <br />номер телефона
+            form(action="")
+              .reg-form.reg-form_result
+                .reg-form__item
+                  .label Введите проверочный код, <br />присланный в СМС-сообщении
+                  input(type="text")
+                .site-options__btn.site-options__btn_form
+                    input(type="submit" value="отправить")
+                .reg-form__item
+                  .label Я не получил(-а) СМС с кодом, #[a(href="/") выслать код повторно].
   .main-wrapp
     .container
       .table-routs.row
@@ -63,7 +110,7 @@ block content
                 .rout__item
                   span= to
                 .rout__item.rout__item_btn
-                  a.btn.btn_blue могу отвезти
+                  a(href="#").btn.btn_blue могу отвезти
         .col.table-routs__item.right
           .rout-table 
             h3 Ближайшие маршруты
@@ -74,7 +121,7 @@ block content
                 .rout__item
                   span= to
                 .rout__item.rout__item_btn
-                  a.btn.btn_orange хочу отправить
+                  a(href="#").btn.btn_orange хочу отправить
       .about
         h1 о сервисе
         p Лена перевозит шведский храмовый комплекс, посвященный дилмунскому богу Енки. Горная река, при том, что королевские полномочия находятся в руках исполнительной власти - кабинета министров, отражает живописный небольшой парк с дикими животными к юго-западу от Манамы. Лена перевозит шведский храмовый комплекс, посвященный дилмунскому богу Енки. Горная река, при том, что королевские полномочия находятся в руках исполнительной власти - кабинета министров, отражает живописный небольшой парк с дикими животными к юго-западу от Манамы.

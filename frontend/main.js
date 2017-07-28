@@ -23,8 +23,12 @@ var	mobileView = window.matchMedia("(max-width: 768px)").matches,
 *************************/
 
 $('.c-hamburger').on('click', function(){
+
 	$(this).toggleClass('is-active');
-	$('.site-nav').slideToggle();
+	// $('.site-nav').slideToggle();
+
+	$('.site-nav').toggleClass('act');
+
 });
 
 
@@ -38,9 +42,28 @@ $('.js-slider-1').slick({
 	slidesToShow: 5,
 	responsive: [
     {
-      breakpoint: 1,
+      breakpoint: 1201,
       settings: {
-        slidesToShow: 1
+        slidesToShow: 4
+      }
+    },
+    {
+      breakpoint: 993,
+      settings: {
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 769,
+      settings: {
+				slidesToShow: 2,
+				arrows: false
+      }
+    },
+    {
+      breakpoint: 400,
+      settings: {
+				slidesToShow: 1
       }
     }
   ]
@@ -72,12 +95,44 @@ $('.scrollup').scrollUp();
 ***** Toggle site options *****
 *******************************/
 
-var $options = $('.site-options');
+// var $options = $('.site-options');
 
-if( $options.length ){
+// if( $options.length ){
 
-		$options.find('[data-options]').click(function(e){
-			$options.toggleClass($(this).attr('data-options'));
-		});
+// 		$options.find('[data-options]').click(function(e){
 
+// 			$options.toggleClass('open');
+// 			$options.toggleClass($(this).attr('data-options'));
+// 		});
+
+// }
+
+var options = document.querySelector('.site-options');
+
+if (options) {
+	/**
+	 * 
+	 * @param {string} data
+	 * Set or remove class from [data-options]
+	 */
+	var switchRightScreen = function(data){
+		options.classList.toggle('open');
+		options.classList.toggle(data);
+	}
+
+	document.querySelector('[data-options]').addEventListener('click', function(){
+
+		var targetForm = this.dataset.options,
+				openedForm = options.classList.item(2);
+		
+		if ( openedForm === 'open-result' ) {
+
+			options.classList.remove('open-result');
+			options.classList.remove('open');
+
+		}
+
+		switchRightScreen(targetForm);
+
+	});
 }

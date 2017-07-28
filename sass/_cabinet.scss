@@ -3,14 +3,30 @@
   &__item{
     flex-grow: 0;
     &:first-child {
-      flex-basis: 33.3333%;
-      -ms-flex-preferred-size: calc(33.3333% - #{2*$gutter});
+      @include basis(33.3333%);
+      @include mq(lg){
+        @include basis(43%);
+      }
+      @include mq(md){
+        @include basis(52%);
+      }
+      @include mq(sm){
+        @include basis(70%);
+      }
     }
     &:last-child {
+      @include basis(50%);
       display: inline-flex;
       flex-direction: column;
-      flex-basis: 50%;
-      -ms-flex-preferred-size: calc(50% - #{2*$gutter});
+      @include mq(lg){
+        @include basis(57%);
+      }
+      @include mq(md){
+        @include basis(48%);
+      }
+      @include mq(sm){
+        @include basis(100%);
+      }
     }
   }
   &__photo {
@@ -24,13 +40,26 @@
       left: 50%;
       transform: translate(-50%, -50%);
       max-width: inherit;
-
+      @include mq(xs){
+        max-width: 101%;
+      }
+    }
+    .edit {
+      position: absolute;
+      right: 7px;
+      bottom: 7px;
+      z-index: 1;
+      @include font(14);
+      color: #d8d8d8;
     }
   }
   &__header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    @include mq(xs){
+      font-size: 0.9em;
+    }
   }
   &__name {
     @include font(32,34);
@@ -44,13 +73,18 @@
   &__inner {
     height: auto;
     margin-top: auto;
+    @include mq(xs){
+      font-size: 0.9em;
+    }
   }
   &__inner-item {
     flex-grow: 0;
-    flex-basis: 50%;
-    -ms-flex-preferred-size: calc(50% - #{2*$gutter});
+    @include basis(50%);
     position: relative;
     padding-top: 15px;
+    @include mq(md){
+      @include basis(100%);
+    }
   }
 }
 

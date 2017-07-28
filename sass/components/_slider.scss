@@ -5,6 +5,9 @@
 .slider-wrapp {
 	position: relative;
 	padding: 0 83px;
+	@include mq(xs){
+		padding: 0;
+	}
 }
 /**** SLIDER ****/
 .slider {
@@ -50,9 +53,10 @@
 	border: 0;
 	line-height: 0;
 	top: calc(50% - 68px);
-	//top: 50%;
-	//transform: translateY(-50%);
 	background-color: transparent;
+	@include mq(xs){
+		display: none;
+	}
 	&:hover {
 		cursor: pointer;
 	}

@@ -50,16 +50,37 @@ fieldset {
 	margin: 0 -12px;
 	display: flex;
 	flex-wrap: wrap;
+	color: #fff;
 	&__item {
 		padding: 17px 12px;
 		flex: 1;
 		@include basis(50%);
+		.reg-form_result & {
+			@include basis(63%);
+			flex-grow: 0;
+			input {
+				margin: 5px 0 10px;
+			}
+			&:last-child {
+				padding-top: 25px;
+			}
+		}
 		&_full {
 			@include basis(100%);
 		}
-		label {
+		&_short {
+			@include basis(25%);
+		}
+		label,
+		.label {
 			@include font(18,24);
 			color: #fff;
+			a {
+				color: inherit;
+				&:focus {
+					outline-color: $blue;
+				}
+			}
 		}
 		.icon {
 			position: relative;
@@ -82,6 +103,15 @@ fieldset {
 			}
 			&_email::before {
 				@include sprite($ico-form_mail);
+			}
+			&_date::before {
+				@include sprite($ico-form_date);
+			}
+			&_home::before {
+				@include sprite($ico-form_home);
+			}
+			&_location::before {
+				@include sprite($ico-form_location);
 			}
 		}
 	}
@@ -113,7 +143,7 @@ fieldset {
 				}
 			}
 			&:focus {
-				& + label {
+				& + label::before {
 					outline: 2px solid $blue;
 				}
 			}

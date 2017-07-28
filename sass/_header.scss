@@ -16,6 +16,15 @@
   display: block;
   padding-right: 98px;
   margin-top: 15px;
+  @include mq(lg){
+    padding-right: 10px;
+  }
+  @include mq(sm){
+    font-size: 0.9em;
+  }
+  @include mq(xs){
+    font-size: 0.8em;
+  }
   &__item {
     &:first-child{
       color: $orange;

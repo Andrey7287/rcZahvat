@@ -11,11 +11,22 @@
       color: $blue;
     }
   }
+  @include mq(lg){
+    padding-right: 0!important;
+    padding-left: 0!important;
+  }
+  @include mq(lg){
+    padding-right: 0!important;
+    padding-left: 0!important;
+  }
 }
 .rout {
   display: flex;
   padding: 10px 0;
   border-top: 1px solid #d8d8d8;
+  @include mq(xs){
+    display: block;
+  }
   &:first-of-type {
     border-top: 0;
     padding-top: 0;
@@ -45,17 +56,29 @@
         .push & {
           @include sprite($divider_blue);
         }
+        @include mq(xs){
+          display: none;
+        }
       }
     }
     &_btn {
       flex-basis: 165px;
-      flex-grow: 0
+      flex-grow: 0;
+      @include mq(lg){
+        flex-basis: 140px;
+      }
     }
   }
 }
 
 
 .personal-routs {
+  @include mq(xs){
+    font-size: 0.94em;
+  } 
+  @include mq(xs){
+    font-size: 0.87em;
+  } 
   th {
     color: $grey;
   }
@@ -67,6 +90,9 @@
     font-size: 0.875em;
     padding: 8px 0;
     min-width: 130px;
+    @include mq(lg) {
+      font-size: 1.125em;
+    }
     &:nth-child(1) {
       position: relative;
       overflow: hidden;
@@ -83,7 +109,7 @@
         right: 3px;
         z-index: 1;
         top: calc(50% - 2px);
-        @include sprite($divider_orange)
+        @include sprite($divider_orange);
       }
     }
     &:nth-child(1),
@@ -94,10 +120,55 @@
     &.action {
       font-size: 1em;
       width: 165px;
-      padding-right: 35px
+      padding-right: 35px;
+      @include mq(lg){
+        font-size: 1.125em;
+      }
     }
   }
   .unread span {
     font-weight: 700;
+  }	
+  @include mq(lg) {
+		display: block;
+		thead, tbody, th, td, tr {
+			display: block;
+		}
+		thead tr {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+		tr { border: 1px solid #ccc; }
+		td {
+			border: none;
+			border-bottom: 1px solid #eee;
+			position: relative;
+      padding-left: 50%;
+      @include mq(xs){
+        padding-left: 38%;
+      }
+			&::before {
+				position: absolute;
+				top: 50%!important;
+        transform: translateY(-50%)!important;
+        left: 6px;
+				width: 45%;
+				padding-right: 10px;
+				white-space: nowrap;
+        content: attr(data-head)!important;
+        background-image: none!important;
+        width: auto!important;
+        height: auto!important;
+			}
+		}
+	}
+}
+
+.table-routs {
+  &__item {
+    @include mq(xs){
+      @include basis(100%);
+    }
   }
 }

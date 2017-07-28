@@ -17,100 +17,99 @@ html
               .site-slogan__item Захвати
               .site-slogan__item попутная доставка
           .col
-            .site-nav-outer
-                nav.site-nav-inner
-                  button.c-hamburger.c-hamburger--htx
-                    span toggle menu
-                  +menu({
+            nav
+              +menu({
+                0: {
+                  href: '/',
+                  title: 'Отправителям',
+                  sub: {
                     0: {
                       href: '/',
-                      title: 'Отправителям',
-                      sub: {
-                        0: {
-                          href: '/',
-                          title: 'Регистрация отправителя'
-                        },
-                        1: {
-                          href: '/',
-                          title: 'Добавить Пакет'
-                        },
-                        2: {
-                          href: '/',
-                          title: 'Доступные маршруты'
-                        },
-                        3: {
-                          href: '/',
-                          title: 'Ваши гарантии'
-                        }
-                      }
+                      title: 'Регистрация отправителя'
                     },
                     1: {
-                      href: '/inner1.html',
-                      title: 'Перевозчикам',
-                      sub: {
-                        0: {
-                          href: '/',
-                          title: 'Регистрация перевозчика'
-                        },
-                        1: {
-                          href: '/',
-                          title: 'Добавить Поездку'
-                        },
-                        2: {
-                          href: '/',
-                          title: 'Ожидающие доставки'
-                        },
-                        3: {
-                          href: '/',
-                          title: 'Ваши выгоды'
-                        }
-                      }
-                    },     
+                      href: '/',
+                      title: 'Добавить Пакет'
+                    },
                     2: {
-                      href: '/inner2.html',
-                      title: 'О сервисе',
-                      sub: {
-                        0: {
-                          href: '/',
-                          title: 'Чем полезен сервис?'
-                        },
-                        1: {
-                          href: '/',
-                          title: 'География'
-                        },
-                        2: {
-                          href: '/',
-                          title: 'Контакты'
-                        },
-                        3: {
-                          href: '/',
-                          title: 'Карта сайта'
-                        }
-                      }
-                    },    
+                      href: '/',
+                      title: 'Доступные маршруты'
+                    },
                     3: {
-                      href: '/inner3.html',
-                      title: 'Правила',
-                      sub: {
-                        0: {
-                          href: '/',
-                          title: 'Правила пользования'
-                        },
-                        1: {
-                          href: '/',
-                          title: 'Гарантии безопасности'
-                        },
-                        2: {
-                          href: '/',
-                          title: 'Гарантии выплат'
-                        },
-                        3: {
-                          href: '/',
-                          title: 'Юридическая информация'
-                        }
-                      }
-                    }    
-                  }, 'site-nav')
+                      href: '/',
+                      title: 'Ваши гарантии'
+                    }
+                  }
+                },
+                1: {
+                  href: '/inner1.html',
+                  title: 'Перевозчикам',
+                  sub: {
+                    0: {
+                      href: '/',
+                      title: 'Регистрация перевозчика'
+                    },
+                    1: {
+                      href: '/',
+                      title: 'Добавить Поездку'
+                    },
+                    2: {
+                      href: '/',
+                      title: 'Ожидающие доставки'
+                    },
+                    3: {
+                      href: '/',
+                      title: 'Ваши выгоды'
+                    }
+                  }
+                },     
+                2: {
+                  href: '/inner2.html',
+                  title: 'О сервисе',
+                  sub: {
+                    0: {
+                      href: '/',
+                      title: 'Чем полезен сервис?'
+                    },
+                    1: {
+                      href: '/',
+                      title: 'География'
+                    },
+                    2: {
+                      href: '/',
+                      title: 'Контакты'
+                    },
+                    3: {
+                      href: '/',
+                      title: 'Карта сайта'
+                    }
+                  }
+                },    
+                3: {
+                  href: '/inner3.html',
+                  title: 'Правила',
+                  sub: {
+                    0: {
+                      href: '/',
+                      title: 'Правила пользования'
+                    },
+                    1: {
+                      href: '/',
+                      title: 'Гарантии безопасности'
+                    },
+                    2: {
+                      href: '/',
+                      title: 'Гарантии выплат'
+                    },
+                    3: {
+                      href: '/',
+                      title: 'Юридическая информация'
+                    }
+                  }
+                }    
+              }, 'site-nav')
+              button.c-hamburger.c-hamburger--htx
+                span toggle menu
     main
       block content
     footer.footer

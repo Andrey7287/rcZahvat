@@ -22,14 +22,8 @@ $button-transistion-duration: 0.3s;     // The transition duration
 .c-hamburger {
 	display: none;
 	z-index: 100;
-	@include mq(sm) {
+	@include mq(lg) {
 		display: block;
-		position: fixed;
-		top: 15px;
-		right: 15px;
-		.scroll &{
-			top: 3px;
-		}
 	}
 	position: relative;
 	overflow: hidden;
